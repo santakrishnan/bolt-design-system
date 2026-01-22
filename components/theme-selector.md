@@ -14,7 +14,7 @@ A complete theme selector component with dropdown selection and code copy functi
 ## Installation
 
 ```bash
-npx shadcn@latest add @8bitcn/theme-selector
+npx shadcn@latest add design-ui/theme-selector
 ```
 
 ## Setup

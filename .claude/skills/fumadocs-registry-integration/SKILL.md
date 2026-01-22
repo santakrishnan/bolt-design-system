@@ -5,7 +5,7 @@ description: Register 8-bit components in registry.json for shadcn/ui add comman
 
 ## Registry Integration
 
-Register 8-bit components in `registry.json` for discovery via `shadcn add @8bitcn/[component-name]`.
+Register 8-bit components in `registry.json` for discovery via `shadcn add design-ui/[component-name]`.
 
 ### Component Entry Pattern
 
@@ -18,14 +18,14 @@ Register 8-bit components in `registry.json` for discovery via `shadcn add @8bit
   "registryDependencies": ["button"],
   "files": [
     {
-      "path": "components/ui/8bit/button.tsx",
+      "path": "components/ui/design-ui/button.tsx",
       "type": "registry:component",
-      "target": "components/ui/8bit/button.tsx"
+      "target": "components/ui/design-ui/button.tsx"
     },
     {
-      "path": "components/ui/8bit/styles/retro.css",
+      "path": "components/ui/design-ui/styles/retro.css",
       "type": "registry:component",
-      "target": "components/ui/8bit/styles/retro.css"
+      "target": "components/ui/design-ui/styles/retro.css"
     }
   ]
 }
@@ -45,14 +45,14 @@ For pre-built layouts like game UIs:
   "categories": ["gaming"],
   "files": [
     {
-      "path": "components/ui/8bit/quest-log.tsx",
+      "path": "components/ui/design-ui/quest-log.tsx",
       "type": "registry:block",
-      "target": "components/ui/8bit/quest-log.tsx"
+      "target": "components/ui/design-ui/quest-log.tsx"
     },
     {
-      "path": "components/ui/8bit/styles/retro.css",
+      "path": "components/ui/design-ui/styles/retro.css",
       "type": "registry:component",
-      "target": "components/ui/8bit/styles/retro.css"
+      "target": "components/ui/design-ui/styles/retro.css"
     }
   ]
 }
@@ -65,14 +65,14 @@ Always include `retro.css` in files array:
 ```json
 "files": [
   {
-    "path": "components/ui/8bit/new-component.tsx",
+    "path": "components/ui/design-ui/new-component.tsx",
     "type": "registry:component",
-    "target": "components/ui/8bit/new-component.tsx"
+    "target": "components/ui/design-ui/new-component.tsx"
   },
   {
-    "path": "components/ui/8bit/styles/retro.css",
+    "path": "components/ui/design-ui/styles/retro.css",
     "type": "registry:component",
-    "target": "components/ui/8bit/styles/retro.css"
+    "target": "components/ui/design-ui/styles/retro.css"
   }
 ]
 ```
@@ -133,19 +133,19 @@ For blocks with multiple components:
   "registryDependencies": ["progress"],
   "files": [
     {
-      "path": "components/ui/8bit/health-bar.tsx",
+      "path": "components/ui/design-ui/health-bar.tsx",
       "type": "registry:component",
-      "target": "components/ui/8bit/health-bar.tsx"
+      "target": "components/ui/design-ui/health-bar.tsx"
     },
     {
-      "path": "components/ui/8bit/progress.tsx",
+      "path": "components/ui/design-ui/progress.tsx",
       "type": "registry:component",
-      "target": "components/ui/8bit/progress.tsx"
+      "target": "components/ui/design-ui/progress.tsx"
     },
     {
-      "path": "components/ui/8bit/styles/retro.css",
+      "path": "components/ui/design-ui/styles/retro.css",
       "type": "registry:component",
-      "target": "components/ui/8bit/styles/retro.css"
+      "target": "components/ui/design-ui/styles/retro.css"
     }
   ]
 }
@@ -163,14 +163,14 @@ For blocks with multiple components:
 
 ### Adding a New Component
 
-1. Create component in `components/ui/8bit/component.tsx`
+1. Create component in `components/ui/design-ui/component.tsx`
 2. Create documentation in `content/docs/components/component.mdx`
 3. Add entry to `registry.json`:
    - Copy existing component as template
    - Update name, title, description
    - Set correct registryDependencies
    - Include retro.css in files
-4. Test: `pnpm dlx shadcn@latest add @8bitcn/component`
+4. Test: `pnpm dlx shadcn@latest add design-ui/component`
 
 ### Reference
 

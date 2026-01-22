@@ -89,4 +89,4 @@ Use CSS custom properties or dark mode variants:
 
 ### Reference Component
 
-See `components/ui/8bit/button.tsx` for complete implementation.
+See `components/ui/design-ui/button.tsx` for complete implementation.

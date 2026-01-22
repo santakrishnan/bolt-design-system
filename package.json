@@ -8,7 +8,8 @@
     "start": "next start",
     "check": "ultracite check",
     "fix": "ultracite fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "generate:docs": "tsx scripts/generate-component-docs.ts"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -89,6 +90,7 @@
     "lint-staged": "^16.2.7",
     "react": "^19.2.3",
     "tailwindcss": "^4.1.18",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "ultracite": "7.0.12"
   },

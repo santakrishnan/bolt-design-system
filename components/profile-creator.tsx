@@ -4,21 +4,16 @@
 import * as htmlToImage from "html-to-image";
 import { parseAsBoolean, parseAsString, useQueryStates } from "nuqs";
 import { useMemo, useState } from "react";
+import { toast } from "sonner";
 import { useThemeConfig, useUrlTheme } from "@/components/active-theme";
 import { SelectThemeDropdown } from "@/components/select-theme-dropdown";
-import { Button } from "@/components/ui/8bit/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/8bit/card";
-import { Input } from "@/components/ui/8bit/input";
-import { Label } from "@/components/ui/8bit/label";
-import { Separator } from "@/components/ui/8bit/separator";
-import { Switch } from "@/components/ui/8bit/switch";
-import { Textarea } from "@/components/ui/8bit/textarea";
-import { toast } from "@/components/ui/8bit/toast";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { Switch } from "@/components/ui/switch";
+import { Textarea } from "@/components/ui/textarea";
 
 import CopyProfileCardDialog from "./copy-profile-card-dialog";
 import ProfileCard from "./profile-card";
@@ -237,9 +232,9 @@ export default function ProfileCreator() {
 
     return `"use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/8bit/avatar";
-import { Badge } from "@/components/ui/8bit/badge";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/8bit/card";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 function getInitials(name: string) {
   if (!name) return "?";

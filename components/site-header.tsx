@@ -7,17 +7,17 @@ import { navItems } from "@/config/nav-items";
 
 import MobileNav from "./mobile-nav";
 import { SearchDocumentation } from "./search-documentation";
-import { Skeleton } from "./ui/8bit/skeleton";
 import { RetroModeSwitcher } from "./ui/retro-mode-switcher";
+import { Skeleton } from "./ui/skeleton";
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 flex h-14 shrink-0 items-center gap-2 border-b border-dashed bg-background/95">
       <div className="flex h-full w-full max-w-[1400px] items-center gap-2 border-r border-l border-dashed px-2 md:mx-auto md:gap-5 md:px-6">
         <Link className="hidden items-center gap-2 md:flex" href="/">
-          <Image alt="logo" height={32} src="/8bitcn.png" width={32} />{" "}
-          <h2 className={`${"retro"} hidden font-bold text-xs md:inline-block`}>
-            8bitcn/ui
+          <Image alt="logo" height={32} src="/logo.svg" width={32} />
+          <h2 className="hidden font-bold text-xs md:inline-block">
+            Bolt Design
           </h2>
         </Link>
 
@@ -69,7 +69,7 @@ export async function StarsCount() {
   const stars = json.stargazers_count;
 
   return (
-    <span className="retro mt-0.5 w-12 text-muted-foreground text-xs tabular-nums">
+    <span className="mt-0.5 w-12 text-muted-foreground text-xs tabular-nums">
       {stars >= 1000 ? `${(stars / 1000).toFixed(1)}k` : stars.toLocaleString()}
     </span>
   );

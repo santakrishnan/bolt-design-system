@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/8bit/button";
-import { toast } from "@/components/ui/8bit/toast";
+import { toast } from "sonner";
+import { Button } from "@/components/ui/button";
 
 export function ToastExample() {
   return (

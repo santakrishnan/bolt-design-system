@@ -58,7 +58,7 @@ pnpm dev
 
 ## Components
 
-We use a registry system for developing components. You can find the source code for the components under `app/components/ui/8bit`.
+We use a registry system for developing components. You can find the source code for the components under `components/ui/design-ui`.
 
 ```bash
 app

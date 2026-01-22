@@ -1,19 +1,15 @@
 "use client";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/8bit/avatar";
-import { Badge } from "@/components/ui/8bit/badge";
-import { Button } from "@/components/ui/8bit/button";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/8bit/card";
+} from "@/components/ui/card";
 
 const WHITESPACE_REGEX = /\s+/;
 

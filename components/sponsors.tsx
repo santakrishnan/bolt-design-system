@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { Avatar, AvatarImage } from "@/components/ui/8bit/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { cn } from "@/lib/utils";
 import MythicSponsor from "./mythic-sponsor";
-import { Button } from "./ui/8bit/button";
-import { Separator } from "./ui/8bit/separator";
+import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 
 export const mythicSponsors = [
   {

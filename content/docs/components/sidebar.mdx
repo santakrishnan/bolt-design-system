@@ -9,8 +9,8 @@ import ComponentPreview from "@/components/component-preview";
 
 <div className="flex flex-col md:flex-row items-center justify-end gap-2 mb-2">
   <CopyCommandButton
-    copyCommand="pnpm dlx shadcn@latest add @8bitcn/sidebar"
-    command="pnpm dlx shadcn@latest add @8bitcn/sidebar"
+    copyCommand="pnpm dlx shadcn@latest add design-ui/sidebar"
+    command="pnpm dlx shadcn@latest add design-ui/sidebar"
   />
 </div>
 
@@ -32,7 +32,7 @@ For more information, check out the [Shadcn Sidebar documentation](https://ui.sh
 
 ```tsx
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
-import { AppSidebar } from "@/components/ui/8bit/blocks/sidebar"
+import { AppSidebar } from "@/components/ui/blocks/sidebar"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (

@@ -1,8 +1,7 @@
 "use client";
 
 import { Terminal } from "lucide-react";
-
-import { toast } from "@/components/ui/8bit/toast";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 
 interface CopyCommandButtonProps {

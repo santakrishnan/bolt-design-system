@@ -1,21 +1,16 @@
 "use client";
 
 import { useCallback, useState } from "react";
-
-import { Avatar, AvatarImage } from "@/components/ui/8bit/avatar";
-import { Button } from "@/components/ui/8bit/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-} from "@/components/ui/8bit/dialog";
-import { Slider } from "@/components/ui/8bit/slider";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
+import { Button } from "@/components/ui/button";
 import {
   Cropper,
   CropperCropArea,
   CropperDescription,
   CropperImage,
 } from "@/components/ui/cropper";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Slider } from "@/components/ui/slider";
 
 interface Props {
   toggleImageCropper: (state?: boolean) => void;

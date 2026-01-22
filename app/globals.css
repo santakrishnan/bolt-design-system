@@ -1,22 +1,11 @@
-/* 
-Uncomment to import Google fonts if you want to use them in your project.
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital%2Copsz%2Cwght@0%2C14..32%2C100..900;1%2C14..32%2C100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital%2Cwght@0%2C400..900;1%2C400..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital%2Cwght@0%2C100..700;1%2C100..700&display=swap");
+/* Google Fonts for theme variations */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital%2Copsz%2Cwght@0%2C18..144%2C300..900;1%2C18..144%2C300..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:ital%2Cwght@0%2C300;0%2C400;0%2C500;0%2C700;1%2C300;1%2C400;1%2C500;1%2C700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital%2Copsz%2Cwght@0%2C9..40%2C100..1000;1%2C9..40%2C100..1000&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Instrument+Sans:ital%2Cwght@0%2C400..700;1%2C400..700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Assistant:wght@200..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital%2Cwght@0%2C100;0%2C200;0%2C300;0%2C400;0%2C500;0%2C600;0%2C700;0%2C800;0%2C900;1%2C100;1%2C200;1%2C300;1%2C400;1%2C500;1%2C600;1%2C700;1%2C800;1%2C900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap");
-*/
+/* Retro/Pixel Font - Must be before Tailwind imports */
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
 @import "tailwindcss";
 @import "fumadocs-ui/css/neutral.css";
@@ -28,6 +17,25 @@ Uncomment to import Google fonts if you want to use them in your project.
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  /* Retro/Pixel Font */
+  --font-retro: "Press Start 2P", system-ui, -apple-system, sans-serif;
+
+  /* Image rendering for pixelated graphics */
+  --image-rendering-pixelated: pixelated;
+
+  /* Shiki Syntax Highlighting - Light Theme */
+  --shiki-color-text: oklch(0.141 0.005 285.823);
+  --shiki-color-background: oklch(1 0 0);
+  --shiki-token-constant: oklch(0.398 0.07 227.392);
+  --shiki-token-string: oklch(0.577 0.245 27.325);
+  --shiki-token-comment: oklch(0.552 0.016 285.938);
+  --shiki-token-keyword: oklch(0.488 0.243 264.376);
+  --shiki-token-parameter: oklch(0.646 0.222 41.116);
+  --shiki-token-function: oklch(0.488 0.243 264.376);
+  --shiki-token-string-expression: oklch(0.577 0.245 27.325);
+  --shiki-token-punctuation: oklch(0.141 0.005 285.823);
+  --shiki-token-link: oklch(0.398 0.07 227.392);
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
@@ -102,7 +110,18 @@ Uncomment to import Google fonts if you want to use them in your project.
 
 /* Theme Variants */
 .theme-default {
-  /* Uses root variables - no overrides needed */
+  /* Uses root variables - Inter font (default) */
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+}
+
+.theme-default h1,
+.theme-default h2,
+.theme-default h3,
+.theme-default h4,
+.theme-default h5,
+.theme-default h6 {
+  font-weight: 600;
 }
 
 .theme-modern {
@@ -113,6 +132,20 @@ Uncomment to import Google fonts if you want to use them in your project.
   --accent: oklch(0.65 0.18 220);
   --accent-foreground: oklch(0.985 0 0);
   --ring: oklch(0.55 0.22 264);
+
+  /* Modern theme - Poppins font with medium weight */
+  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+}
+
+.theme-modern h1,
+.theme-modern h2,
+.theme-modern h3,
+.theme-modern h4,
+.theme-modern h5,
+.theme-modern h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .theme-modern.dark {
@@ -132,6 +165,20 @@ Uncomment to import Google fonts if you want to use them in your project.
   --accent: oklch(0.6 0.15 260);
   --accent-foreground: oklch(0.985 0 0);
   --ring: oklch(0.5 0.2 280);
+
+  /* Professional theme - DM Sans with slightly heavier weight */
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  font-weight: 500;
+}
+
+.theme-professional h1,
+.theme-professional h2,
+.theme-professional h3,
+.theme-professional h4,
+.theme-professional h5,
+.theme-professional h6 {
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .theme-professional.dark {
@@ -153,6 +200,20 @@ Uncomment to import Google fonts if you want to use them in your project.
   --muted: oklch(0.95 0.005 260);
   --muted-foreground: oklch(0.45 0.02 260);
   --ring: oklch(0.45 0.02 260);
+
+  /* Minimal theme - Instrument Sans with light weight */
+  font-family: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+}
+
+.theme-minimal h1,
+.theme-minimal h2,
+.theme-minimal h3,
+.theme-minimal h4,
+.theme-minimal h5,
+.theme-minimal h6 {
+  font-weight: 500;
+  letter-spacing: -0.015em;
 }
 
 .theme-minimal.dark {
@@ -234,6 +295,19 @@ body.theme-minimal.dark {
 }
 
 .dark {
+  /* Shiki Syntax Highlighting - Dark Theme */
+  --shiki-color-text: oklch(0.985 0 0);
+  --shiki-color-background: oklch(0.141 0.005 285.823);
+  --shiki-token-constant: oklch(0.769 0.188 70.08);
+  --shiki-token-string: oklch(0.828 0.189 84.429);
+  --shiki-token-comment: oklch(0.552 0.016 285.938);
+  --shiki-token-keyword: oklch(0.696 0.17 162.48);
+  --shiki-token-parameter: oklch(0.769 0.188 70.08);
+  --shiki-token-function: oklch(0.696 0.17 162.48);
+  --shiki-token-string-expression: oklch(0.828 0.189 84.429);
+  --shiki-token-punctuation: oklch(0.985 0 0);
+  --shiki-token-link: oklch(0.488 0.243 264.376);
+
   --background: oklch(0.141 0.005 285.823);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.21 0.006 285.885);
@@ -373,6 +447,9 @@ body.theme-minimal.dark {
   --font-poppins: var(--font-poppins);
   --font-hedvigLettersSerif: var(--font-hedvigLettersSerif);
   --font-antonio: var(--font-antonio);
+
+  /* Retro/Pixel Font */
+  --font-retro: var(--font-retro);
 
   --breakpoint-sm: 640px;
   --breakpoint-md: 768px;
@@ -922,6 +999,15 @@ body.theme-minimal.dark {
     @apply bg-background text-foreground font-sans antialiased;
     scrollbar-gutter: stable;
   }
+
+  /* Code block styling */
+  figure[data-rehype-pretty-code-figure] {
+    @apply rounded-lg border bg-muted/30;
+  }
+
+  figure[data-rehype-pretty-code-figure] pre {
+    @apply overflow-x-auto rounded-lg p-4;
+  }
 }
 
 html body[data-scroll-locked] {
@@ -983,5 +1069,24 @@ html body[data-scroll-locked] {
 
   .group-hover\/kibo-credit-card\:shadow-lg:hover {
     box-shadow: var(--shadow-lg);
+  }
+
+  /* Retro/Pixel Design System Utilities */
+  .font-retro {
+    font-family: var(--font-retro);
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+  }
+
+  .pixelated {
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+  }
+
+  /* Legacy class - use font-retro instead */
+  .retro {
+    font-family: var(--font-retro);
+    line-height: 1.5;
+    letter-spacing: 0.5px;
   }
 }

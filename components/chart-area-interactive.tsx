@@ -8,14 +8,14 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/8bit/card";
+} from "@/components/ui/card";
 import {
   type ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
-} from "@/components/ui/8bit/chart";
-import { ActivityIcon } from "@/components/ui/8bit/icons";
+} from "@/components/ui/chart";
+import { ActivityIcon } from "@/components/ui/icons";
 
 export const description = "A step area chart";
 

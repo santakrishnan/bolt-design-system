@@ -2,15 +2,15 @@
 
 import { type ComponentProps, useState } from "react";
 
-import { Calendar } from "@/components/ui/8bit/calendar";
-import { Label } from "@/components/ui/8bit/label";
+import { Calendar } from "@/components/ui/calendar";
+import { Label } from "@/components/ui/label";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/8bit/select";
+} from "@/components/ui/select";
 
 export function Calendar13() {
   const [dropdown, setDropdown] =
