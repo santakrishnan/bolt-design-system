@@ -1,6 +1,6 @@
 "use client";
 
-import { type SaveSlot, SaveSlots } from "@/components/ui/blocks/save-slots";
+import { type SaveSlot, SaveSlots } from "@/components/blocks/save-slots";
 
 const exampleSlots: SaveSlot[] = [
   {

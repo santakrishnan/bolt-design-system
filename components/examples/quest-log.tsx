@@ -1,6 +1,6 @@
 "use client";
 
-import { type Quest, QuestLog } from "@/components/ui/blocks/quest-log";
+import { type Quest, QuestLog } from "@/components/blocks/quest-log";
 
 const exampleQuests: Quest[] = [
   {

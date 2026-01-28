@@ -1,8 +1,8 @@
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
+import ChartBarMultiple from "@/components/blocks/chart-bar";
 import { DashboardHeader } from "@/components/dashboard-header";
 import { DataTable } from "@/components/data-table";
 import { SectionCards } from "@/components/section-cards";
-import ChartBarMultiple from "@/components/ui/blocks/chart-bar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   Sidebar,
