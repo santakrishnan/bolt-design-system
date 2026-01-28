@@ -20,8 +20,11 @@
   },
   "include": [
     "index.ts",
-    "components/**/*",
-    "lib/**/*",
+    "components/index.ts",
+    "components/blocks/**/*",
+    "components/ui/**/*",
+    "lib/utils.ts",
+    "lib/themes.ts",
     "hooks/**/*",
     "types/**/*"
   ],
@@ -33,6 +36,11 @@
     "dist",
     ".next",
     "app",
-    "content"
+    "content",
+    "lib/source.ts",
+    "lib/metadata.ts",
+    "lib/layout.shared.ts",
+    "lib/package.ts",
+    "lib/highlight-code.ts"
   ]
 }
