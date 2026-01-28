@@ -21,28 +21,12 @@
     "tailwindcss",
     "design-system"
   ],
-  "main": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
-    },
-    "./blocks/*": {
-      "types": "./dist/components/blocks/*.d.ts",
-      "import": "./dist/components/blocks/*.js"
-    },
-    "./ui/*": {
-      "types": "./dist/components/ui/*.d.ts",
-      "import": "./dist/components/ui/*.js"
-    },
-    "./lib/*": {
-      "types": "./dist/lib/*.d.ts",
-      "import": "./dist/lib/*.js"
-    },
-    "./hooks/*": {
-      "types": "./dist/hooks/*.d.ts",
-      "import": "./dist/hooks/*.js"
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
     }
   },
   "files": [
@@ -51,8 +35,8 @@
   ],
   "scripts": {
     "dev": "next dev",
-    "build": "tsc -p tsconfig.build.json && next build",
-    "build:lib": "tsc -p tsconfig.build.json",
+    "build": "tsup && next build",
+    "build:lib": "tsup",
     "start": "next start",
     "check": "ultracite check",
     "fix": "ultracite fix",
@@ -144,6 +128,7 @@
     "react": "^19.2.3",
     "semantic-release": "^25.0.2",
     "tailwindcss": "^4.1.18",
+    "tsup": "^8.5.1",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "ultracite": "7.0.12"
