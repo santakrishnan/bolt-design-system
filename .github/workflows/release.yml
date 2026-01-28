@@ -41,7 +41,9 @@ jobs:
         run: pnpm check
 
       - name: Build
-        run: pnpm build
+        run: |
+          pnpm run build:lib
+          pnpm run build
 
       - name: Semantic Release
         env:
