@@ -1,14 +1,14 @@
-echo '🪓🏗️👹 Preparing orc axes for the mighty project conquest! 👹🏗️🪓'
-echo 'Get ready for battle, this may take a while...'
+echo '🔍 Running pre-commit checks...'
 
-# Check Orcish Code Standards
+# Run lint-staged
 npx lint-staged
 
+# Run code quality checks
 pnpm check ||
 (
-    echo "⚔️❌ Grargh, you have encountered an issue in your code. Check the orcish runes! ⚔️❌
-          Run pnpm check, make changes, and try the conquest again.";
+    echo "❌ Code quality checks failed. Please fix the issues and try again.
+          Run 'pnpm check' to see errors or 'pnpm fix' to auto-fix.";
     false;
 )
 
-echo '🎉 No problems found: initiating orcish conquest now.... ✨🚀🏹🛡️'
+echo '✅ All checks passed. Proceeding with commit...'
