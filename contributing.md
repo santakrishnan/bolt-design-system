@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in contributing to 8bitcn.com. We're happy to have you here.
+Thanks for your interest in contributing to Bolt Design. We're happy to have you here.
 
 Please take a moment to review this document before submitting your first pull request. We also strongly recommend that you check for open issues and pull requests to see if someone else is working on something similar.
 
@@ -27,13 +27,13 @@ You can fork this repo by clicking the fork button in the top right corner of th
 ### Clone on your local machine
 
 ```bash
-git clone https://github.com/your-username/8bitcn.git
+git clone https://github.com/your-username/bolt-design-system.git
 ```
 
 ### Navigate to project directory
 
 ```bash
-cd 8bitcn
+cd bolt-design-system
 ```
 
 ### Create a new Branch
@@ -50,7 +50,7 @@ pnpm i
 
 #### Examples
 
-1. To run the `8bitcn.com` website:
+1. To run the Bolt Design website:
 
 ```bash
 pnpm dev
@@ -58,15 +58,14 @@ pnpm dev
 
 ## Components
 
-We use a registry system for developing components. You can find the source code for the components under `app/components/ui/8bit`.
+We use a registry system for developing components. You can find the source code for the components under `components/ui/8bit`.
 
 ```bash
-app
-└── components
-    └── ui
-        ├── 8bit
-            ├── badge
-            └── button
+components
+└── ui
+    ├── 8bit
+        ├── badge
+        └── button
 ```
 
 When adding or modifying components, please ensure that:
