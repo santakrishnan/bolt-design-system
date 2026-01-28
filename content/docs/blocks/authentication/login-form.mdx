@@ -1,39 +1,128 @@
 ---
 title: Login Form
-description: Displays an 8-bit simple login form with email and password.
+description: A clean and modern login form with email and password fields.
 ---
 
-import { LoginForm } from "@/components/ui/8bit/blocks/login-form";
+import { LoginForm } from "@/components/blocks/login-form";
+import { BlockPreview } from "@/components/block-preview";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CopyCommandButton from "@/components/copy-command-button";
-import InstallationCommands from "@/components/installation-commands";
-import ComponentPreview from "@/components/component-preview";
 
-<div className="flex flex-col md:flex-row items-center justify-end gap-2 mb-2">
-  <CopyCommandButton
-    copyCommand="pnpm dlx shadcn@latest add @8bitcn/login-form"
-    command="pnpm dlx shadcn@latest add @8bitcn/login-form"
-  />
-</div>
+<Tabs defaultValue="preview" className="relative mr-auto w-full">
+  <div className="flex items-center justify-between pb-3">
+    <div className="flex items-center gap-4">
+      <TabsList className="justify-start rounded-none border-b bg-transparent p-0">
+        <TabsTrigger
+          value="preview"
+          className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+        >
+          Preview
+        </TabsTrigger>
+        <TabsTrigger
+          value="code"
+          className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+        >
+          Code
+        </TabsTrigger>
+      </TabsList>
+    </div>
+    <div className="flex items-center gap-2">
+      <CopyCommandButton
+        copyCommand="pnpm dlx shadcn@latest add design-ui/login-form"
+        command="pnpm dlx shadcn@latest add design-ui/login-form"
+      />
+    </div>
+  </div>
+  <TabsContent value="preview" className="relative rounded-md border">
+    <BlockPreview>
+      <div className="flex items-center justify-center p-8 min-h-[400px]">
+        <LoginForm />
+      </div>
+    </BlockPreview>
+  </TabsContent>
+  <TabsContent value="code">
+    ```tsx title="components/blocks/login-form.tsx"
+    import { Button } from "@/components/ui/button";
+    import {
+      Card,
+      CardContent,
+      CardDescription,
+      CardHeader,
+      CardTitle,
+    } from "@/components/ui/card";
+    import { Input } from "@/components/ui/input";
+    import { Label } from "@/components/ui/label";
 
-<ComponentPreview title="8-bit Login Form block" name="login-form">
-  <LoginForm />
-</ComponentPreview>
+    export function LoginForm() {
+      return (
+        <Card className="w-full max-w-md">
+          <CardHeader>
+            <CardTitle>Welcome Back</CardTitle>
+            <CardDescription>
+              Enter your credentials to access your account
+            </CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input
+                id="email"
+                type="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <Input id="password" type="password" required />
+            </div>
+            <div className="flex items-center justify-between">
+              <a
+                href="#"
+                className="text-sm text-muted-foreground hover:text-primary"
+              >
+                Forgot password?
+              </a>
+            </div>
+            <Button className="w-full">Sign In</Button>
+            <div className="text-center text-sm text-muted-foreground">
+              Don't have an account?{" "}
+              <a href="#" className="text-primary hover:underline">
+                Sign up
+              </a>
+            </div>
+          </CardContent>
+        </Card>
+      );
+    }
+    ```
+  </TabsContent>
+</Tabs>
 
-## Installation
+## Login Form
 
----
+A clean and modern login form component with email and password fields.
 
-<InstallationCommands packageName="login-form" />
-
-## Usage
-
----
+### Usage
 
 ```tsx
-import { LoginForm } from "@/components/ui/8bit/blocks/login-form"
+import { LoginForm } from "@/components/blocks/login-form";
+
+export default function LoginPage() {
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <LoginForm />
+    </div>
+  );
+}
 ```
 
-```tsx
-<LoginForm />
-```
+### Features
 
+- Clean, modern design
+- Email and password fields with validation
+- Forgot password link
+- Sign up link
+- Fully responsive
+- Built with shadcn/ui components
+- TypeScript support

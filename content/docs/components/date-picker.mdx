@@ -10,8 +10,8 @@ import { DatePicker } from "@/components/examples/date-picker";
 
 <div className="flex flex-col md:flex-row items-center justify-end gap-2 mb-2">
   <CopyCommandButton
-    copyCommand="pnpm dlx shadcn@latest add @8bitcn/date-picker"
-    command="pnpm dlx shadcn@latest add @8bitcn/date-picker"
+    copyCommand="pnpm dlx shadcn@latest add design-ui/date-picker"
+    command="pnpm dlx shadcn@latest add design-ui/date-picker"
   />
 </div>
 
@@ -37,13 +37,13 @@ import { format } from "date-fns";
 import { Calendar as CalendarIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/8bit/button";
-import { Calendar } from "@/components/ui/8bit/calendar";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/8bit/popover";
+} from "@/components/ui/popover";
 
 export function DatePicker() {
   const [date, setDate] = React.useState<Date>();

@@ -1,0 +1,275 @@
+---
+title: Hero Banner
+description: A modern hero banner with background image, title, description, and call-to-action buttons.
+---
+
+import { HeroBanner } from "@/components/blocks/hero-banner";
+import { BlockPreview } from "@/components/block-preview";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import CopyCommandButton from "@/components/copy-command-button";
+
+<Tabs defaultValue="preview" className="relative mr-auto w-full">
+  <div className="flex items-center justify-between pb-3">
+    <div className="flex items-center gap-4">
+      <TabsList className="justify-start rounded-none border-b bg-transparent p-0">
+        <TabsTrigger
+          value="preview"
+          className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+        >
+          Preview
+        </TabsTrigger>
+        <TabsTrigger
+          value="code"
+          className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+        >
+          Code
+        </TabsTrigger>
+      </TabsList>
+    </div>
+    <div className="flex items-center gap-2">
+      <CopyCommandButton
+        copyCommand="pnpm dlx shadcn@latest add design-ui/hero-banner"
+        command="pnpm dlx shadcn@latest add design-ui/hero-banner"
+      />
+    </div>
+  </div>
+  <TabsContent value="preview" className="relative rounded-md border">
+    <BlockPreview>
+      <div className="p-4">
+        <HeroBanner
+          title="Build Amazing Products"
+          description="Create beautiful, modern web applications with our component library"
+          primaryAction={{
+            label: "Get Started",
+            href: "/docs"
+          }}
+          secondaryAction={{
+            label: "Learn More",
+            href: "/docs/components"
+          }}
+          backgroundImage="https://images.unsplash.com/photo-1557683316-973673baf926?w=1200"
+        />
+      </div>
+    </BlockPreview>
+  </TabsContent>
+  <TabsContent value="code">
+    ```tsx title="components/blocks/hero-banner.tsx"
+    import { Button } from "@/components/ui/button";
+    import { cn } from "@/lib/utils";
+
+    interface HeroBannerProps {
+      title: string;
+      description?: string;
+      primaryAction?: {
+        label: string;
+        href?: string;
+        onClick?: () => void;
+      };
+      secondaryAction?: {
+        label: string;
+        href?: string;
+        onClick?: () => void;
+      };
+      backgroundImage?: string;
+      className?: string;
+    }
+
+    export function HeroBanner({
+      title,
+      description,
+      primaryAction,
+      secondaryAction,
+      backgroundImage,
+      className,
+    }: HeroBannerProps) {
+      return (
+        <section
+          className={cn(
+            "relative flex min-h-[400px] items-center justify-center overflow-hidden rounded-lg",
+            className
+          )}
+        >
+          {backgroundImage && (
+            <>
+              <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${backgroundImage})` }}
+              />
+              <div className="absolute inset-0 bg-black/50" />
+            </>
+          )}
+
+          <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
+            <h1 className="mb-4 text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
+              {title}
+            </h1>
+            {description && (
+              <p className="mb-8 text-lg text-white/90 md:text-xl">
+                {description}
+              </p>
+            )}
+            {(primaryAction || secondaryAction) && (
+              <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+                {primaryAction && (
+                  <Button
+                    size="lg"
+                    onClick={primaryAction.onClick}
+                    asChild={!!primaryAction.href}
+                  >
+                    {primaryAction.href ? (
+                      <a href={primaryAction.href}>{primaryAction.label}</a>
+                    ) : (
+                      primaryAction.label
+                    )}
+                  </Button>
+                )}
+                {secondaryAction && (
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    onClick={secondaryAction.onClick}
+                    asChild={!!secondaryAction.href}
+                    className="bg-white/10 text-white hover:bg-white/20"
+                  >
+                    {secondaryAction.href ? (
+                      <a href={secondaryAction.href}>{secondaryAction.label}</a>
+                    ) : (
+                      secondaryAction.label
+                    )}
+                  </Button>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
+      );
+    }
+    ```
+  </TabsContent>
+</Tabs>
+
+## Hero Banner
+
+A modern hero banner component with background image, title, description, and customizable call-to-action buttons.
+
+## Examples
+
+### With Both Actions
+
+<div className="my-6 rounded-lg border p-4">
+  <HeroBanner
+    title="Build Amazing Products"
+    description="Create beautiful, modern web applications with our component library"
+    primaryAction={{
+      label: "Get Started",
+      href: "/docs"
+    }}
+    secondaryAction={{
+      label: "Learn More",
+      href: "/docs/components"
+    }}
+    backgroundImage="https://images.unsplash.com/photo-1557683316-973673baf926?w=1200"
+  />
+</div>
+
+```tsx
+<HeroBanner
+  title="Build Amazing Products"
+  description="Create beautiful, modern web applications"
+  primaryAction={{
+    label: "Get Started",
+    href: "/docs"
+  }}
+  secondaryAction={{
+    label: "Learn More",
+    href: "/docs/components"
+  }}
+  backgroundImage="https://images.unsplash.com/photo-1557683316-973673baf926?w=1200"
+/>
+```
+
+### Primary Action Only
+
+<div className="my-6 rounded-lg border p-4">
+  <HeroBanner
+    title="Start Your Journey Today"
+    description="Join thousands of developers building with modern tools"
+    primaryAction={{
+      label: "Sign Up Free",
+      href: "/signup"
+    }}
+    backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200"
+  />
+</div>
+
+```tsx
+<HeroBanner
+  title="Start Your Journey Today"
+  description="Join thousands of developers building with modern tools"
+  primaryAction={{
+    label: "Sign Up Free",
+    href: "/signup"
+  }}
+  backgroundImage="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200"
+/>
+```
+
+### Minimal (Title Only)
+
+<div className="my-6 rounded-lg border p-4">
+  <HeroBanner
+    title="Welcome to the Future"
+    backgroundImage="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200"
+  />
+</div>
+
+```tsx
+<HeroBanner
+  title="Welcome to the Future"
+  backgroundImage="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200"
+/>
+```
+
+### Usage
+
+```tsx
+import { HeroBanner } from "@/components/blocks/hero-banner";
+
+export default function HomePage() {
+  return (
+    <HeroBanner
+      title="Welcome to Our Platform"
+      description="Build amazing products with our tools"
+      primaryAction={{
+        label: "Get Started",
+        href: "/signup"
+      }}
+      secondaryAction={{
+        label: "Learn More",
+        href: "/about"
+      }}
+      backgroundImage="/hero-bg.jpg"
+    />
+  );
+}
+```
+
+### Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `title` | `string` | Main heading text (required) |
+| `description` | `string` | Subheading text (optional) |
+| `primaryAction` | `{ label: string, href?: string, onClick?: () => void }` | Primary CTA button (optional) |
+| `secondaryAction` | `{ label: string, href?: string, onClick?: () => void }` | Secondary CTA button (optional) |
+| `backgroundImage` | `string` | Background image URL (optional) |
+| `className` | `string` | Additional CSS classes (optional) |
+
+### Features
+
+- Fully responsive design (mobile, tablet, desktop)
+- Background image with dark overlay for text readability
+- Customizable actions (links or onClick handlers)
+- TypeScript support with full type safety
+- Built with shadcn/ui components
+- Accessible and semantic HTML

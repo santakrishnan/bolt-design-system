@@ -41,14 +41,14 @@ import { cn } from "@/lib/utils";
 
 import { Button as ShadcnButton } from "@/components/ui/button";
 
-import "@/components/ui/8bit/styles/retro.css";
+import "@/components/ui/design-ui/styles/retro.css";
 ```
 
 Import order:
 1. External libraries (class-variance-authority, @radix-ui)
 2. Internal utils (`@/lib/utils`)
 3. Base component alias (`@/components/ui/component`)
-4. Retro stylesheet (`@/components/ui/8bit/styles/retro.css`)
+4. Retro stylesheet (`@/components/ui/design-ui/styles/retro.css`)
 
 ### Type Definitions
 
@@ -110,7 +110,7 @@ function Button({ ref, ...props }: BitButtonProps) {
 **Retro CSS import**: Required for all 8bit components
 
 ```tsx
-import "@/components/ui/8bit/styles/retro.css";
+import "@/components/ui/design-ui/styles/retro.css";
 ```
 
 **Base component alias**: Import base component with alias
@@ -135,5 +135,5 @@ export const buttonVariants = cva("", {
 ### Reference Files
 
 - `components/ui/button.tsx` - Base component example
-- `components/ui/8bit/button.tsx` - 8bit wrapper example
+- `components/ui/design-ui/button.tsx` - 8bit wrapper example
 - `components/ui/dialog.tsx` - Complex base component with Radix primitives

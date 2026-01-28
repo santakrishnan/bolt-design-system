@@ -4,7 +4,7 @@ import { Minus, Plus } from "lucide-react";
 import { type CSSProperties, useState } from "react";
 import { Bar, BarChart, ResponsiveContainer } from "recharts";
 
-import { Button } from "@/components/ui/8bit/button";
+import { Button } from "@/components/ui/button";
 import {
   Drawer,
   DrawerClose,
@@ -14,7 +14,7 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "@/components/ui/8bit/drawer";
+} from "@/components/ui/drawer";
 
 const data = [
   {

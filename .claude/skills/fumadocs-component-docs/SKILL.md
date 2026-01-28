@@ -77,7 +77,7 @@ For components with multiple sub-components like Sheet:
 
 ```mdx
 ```tsx
-import { Button } from "@/components/ui/8bit/button"
+import { Button } from "@/components/ui/design-ui/button"
 ```
 ```
 
@@ -92,7 +92,7 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/components/ui/8bit/sheet"
+} from "@/components/ui/design-ui/sheet"
 ```
 ```
 
@@ -140,8 +140,8 @@ Place before ComponentPreview:
 ```mdx
 <div className="flex flex-col md:flex-row items-center justify-end gap-2 mb-2">
   <CopyCommandButton
-    copyCommand="pnpm dlx shadcn@latest add @8bitcn/component-name"
-    command="pnpm dlx shadcn@latest add @8bitcn/component-name"
+    copyCommand="pnpm dlx shadcn@latest add design-ui/component-name"
+    command="pnpm dlx shadcn@latest add design-ui/component-name"
   />
 </div>
 ```
@@ -153,7 +153,7 @@ Place before ComponentPreview:
 3. **Realistic data** - Use meaningful values in examples
 4. **Import completeness** - Include all used imports
 5. **Code block labels** - Use ```tsx for TypeScript
-6. **8-bit components** - Import from `@/components/ui/8bit/`
+6. **8-bit components** - Import from `@/components/ui/design-ui/`
 7. **Consistent spacing** - Use gap-4, p-4, mb-2 patterns
 
 ### Reference Examples

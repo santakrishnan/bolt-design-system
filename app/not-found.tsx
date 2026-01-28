@@ -2,11 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Button } from "@/components/ui/8bit/button";
-import "@/components/ui/8bit/styles/retro.css";
+import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "404 | 8bitcn/ui",
+  title: "404 | Bolt Design/ui",
 };
 
 export default function NotFound() {

@@ -1,23 +1,17 @@
 ---
 title: Chart
-description: Displays an 8-bit chart.
+description: Displays data visualizations using recharts.
 ---
 
-import { ChartExample } from "@/components/ui/8bit/blocks/chart";
 import CopyCommandButton from "@/components/copy-command-button";
 import InstallationCommands from "@/components/installation-commands";
-import ComponentPreview from "@/components/component-preview";
 
 <div className="flex flex-col md:flex-row items-center justify-end gap-2 mb-2">
   <CopyCommandButton
-    copyCommand="pnpm dlx shadcn@latest add @8bitcn/chart"
-    command="pnpm dlx shadcn@latest add @8bitcn/chart"
+    copyCommand="pnpm dlx shadcn@latest add chart"
+    command="pnpm dlx shadcn@latest add chart"
   />
 </div>
-
-<ComponentPreview title="8-bit Chart component" name="chart">
-  <ChartExample />
-</ComponentPreview>
 
 ## Installation
 
@@ -29,11 +23,11 @@ import ComponentPreview from "@/components/component-preview";
 
 ---
 
-```tsx
-import { ChartExample } from "@/components/ui/8bit/blocks/chart"
-```
+The Chart component is built on top of Recharts and provides a simple way to create beautiful, accessible charts.
 
 ```tsx
-<ChartExample />
+import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 ```
+
+For detailed examples and usage, please refer to the [shadcn/ui Chart documentation](https://ui.shadcn.com/docs/components/chart).
 

@@ -8,7 +8,7 @@ Bolt Design is a modern component library built with Next.js 16 (App Router), Re
 
 **Package Manager**: pnpm
 **Registry**: https://ui.shadcn.com/registry
-**Installation**: `pnpm dlx shadcn@latest add @bolt-design/[component-name]`
+**Installation**: `pnpm dlx shadcn@latest add [component-name]`
 
 ## Commands
 
@@ -36,35 +36,21 @@ No test framework is currently configured. When adding tests, use Vitest as the 
 
 This project uses **Ultracite** (Biome-based preset) for automatic formatting and linting. Always run `pnpm fix` before committing. Biome handles most formatting automatically - focus on code quality and logic.
 
-### 8-bit Component Specific Patterns
+### Component Patterns
 
-**Wrapper Pattern**: 8-bit components wrap regular shadcn/ui components rather than replacing them:
+**Standard Pattern**: All components use shadcn/ui primitives:
 
 ```tsx
-import { Button as ShadcnButton } from "@/components/ui/button";
-import "./styles/retro.css";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-export const Button = ({ className, ...props }: ButtonProps) => {
+export function MyComponent({ className, ...props }) {
   return (
-    <div className="relative">
-      <ShadcnButton className={cn("rounded-none", className)} {...props} />
-      {/* Pixelated border elements */}
-    </div>
+    <Button className={cn("custom-styles", className)} {...props}>
+      Click me
+    </Button>
   );
-};
-```
-
-**Pixelated Border Construction**: Use absolute-positioned divs for 8-bit borders:
-
-```tsx
-<div className="absolute -top-1.5 w-1/2 left-1.5 h-1.5 bg-foreground dark:bg-ring" />
-<div className="absolute -top-1.5 w-1/2 right-1.5 h-1.5 bg-foreground dark:bg-ring" />
-```
-
-**Required Retro CSS**: All 8-bit components must import the retro stylesheet:
-
-```tsx
-import "./styles/retro.css";
+}
 ```
 
 ### Imports
@@ -76,7 +62,6 @@ import "./styles/retro.css";
   ```
 - Import order: External libraries (alphabetical) → Internal `@/*` imports
 - Prefer named exports over default exports
-- 8-bit components must import retro.css: `import "./styles/retro.css"`
 
 ### TypeScript
 
@@ -140,6 +125,7 @@ import "./styles/retro.css";
 - Use `cn()` utility from `@/lib/utils` for conditional classes
 - Avoid inline styles - use Tailwind classes
 - Use semantic HTML elements with proper ARIA attributes
+- **Theme tokens**: Use CSS custom properties from globals.css
 
 ### Accessibility
 
@@ -177,23 +163,22 @@ Example: `feat(components): add new prop to avatar component`
 
 Components are registered in `registry.json` with specific patterns:
 
-- **Component entries**: Include retro.css dependency and proper file mappings
-- **Block entries**: Pre-built layouts like login forms, player profiles
-- **Gaming categories**: Components marked with "gaming" category for game UI elements
+- **Component entries**: Include proper file mappings for components
+- **Block entries**: Pre-built layouts like login forms, dashboards
 - **Dependencies**: Explicitly declare shadcn/ui dependencies via `registryDependencies`
+- **No CSS imports needed**: All global styles are in `app/globals.css`
 
 ## File Structure
 
 ```
 /app              - Next.js App Router pages
 /components       - React components
-  /ui            - shadcn/ui components
-  /ui/8bit       - Retro 8-bit styled components
-/lib             - Utility functions
-/config          - Configuration files
-/hooks           - Custom React hooks
-/types           - TypeScript type definitions
-/public          - Static assets
+  /ui             - shadcn/ui components
+/lib              - Utility functions
+/config           - Configuration files
+/hooks            - Custom React hooks
+/types            - TypeScript type definitions
+/public           - Static assets
 ```
 
 ## Documentation
@@ -211,5 +196,7 @@ This project uses **Fumadocs** for documentation generation and management:
 - Husky is configured for pre-commit hooks with lint-staged
 - Lint-staged runs `pnpm check` on all staged files before commit
 - Components are registered in `registry.json` - update when adding/modifying components
-- For 8-bit components, make changes for every style variant
 - Ultracite excludes: `public/`, `components/ui/`, `hooks/use-mobile.ts`, `lib/utils.ts`, `.source/`
+- **All styles are global**: Styles are defined in `app/globals.css`
+- **Use theme tokens**: Prefer CSS custom properties over hardcoded values
+- **Use shadcn/ui components**: All components are from `@/components/ui/`

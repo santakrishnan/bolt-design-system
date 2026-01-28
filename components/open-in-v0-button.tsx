@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import registry from "@/registry.json";
 
-const PACKAGE_PREFIX_REGEX = /^@8bitcn\//;
+const PACKAGE_PREFIX_REGEX = /^design-ui\//;
 const COMPONENT_PREFIX_REGEX = /^8bit-/;
 const TRAILING_SLASH_REGEX = /\/$/;
 
