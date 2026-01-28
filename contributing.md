@@ -80,14 +80,16 @@ When adding or modifying components, please ensure that:
 Before you create a Pull Request, please check whether your commits comply with
 the commit conventions used in this repository.
 
+**This project uses [semantic-release](https://semantic-release.gitbook.io/) for automated versioning and package publishing.** Your commit messages directly determine version bumps and changelog generation.
+
 When you create a commit we kindly ask you to follow the convention
 `category(scope or module): message` in your commit message while using one of
 the following categories:
 
 - `feat / feature`: all changes that introduce completely new code or new
-  features
+  features (**triggers MINOR version bump**)
 - `fix`: changes that fix a bug (ideally you will additionally reference an
-  issue if present)
+  issue if present) (**triggers PATCH version bump**)
 - `refactor`: any code related change that is not a fix nor a feature
 - `docs`: changing existing or creating new documentation (i.e. README, docs for
   usage of a lib or cli usage)
@@ -99,12 +101,40 @@ the following categories:
   github actions, ci system)
 - `chore`: all changes to the repository that do not fit into any of the above
   categories
+- `perf`: performance improvements (**triggers PATCH version bump**)
 
-  e.g. `feat(components): add new prop to the avatar component`
+**Breaking Changes:** Add `BREAKING CHANGE:` in the commit body or append `!` after the type/scope to trigger a **MAJOR version bump**.
+
+### Examples
+
+```bash
+# Patch release (0.1.0 -> 0.1.1)
+fix(button): resolve hover state issue
+
+# Minor release (0.1.0 -> 0.2.0)
+feat(avatar): add new size variant
+
+# Major release (0.1.0 -> 1.0.0)
+feat(button)!: redesign button API
+
+BREAKING CHANGE: The `variant` prop has been renamed to `appearance`
+```
 
 If you are interested in the detailed specification you can visit
 https://www.conventionalcommits.org/ or check out the
 [Angular Commit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines).
+
+## Release Process
+
+Releases are fully automated using semantic-release:
+
+1. Push commits to `main` branch using conventional commit format
+2. GitHub Actions workflow runs automatically
+3. semantic-release analyzes commits and determines version bump
+4. New version is published to GitHub Packages
+5. GitHub Release is created with changelog
+
+**No manual version bumping or npm publish commands needed!**
 
 ## Requests for new components
 
