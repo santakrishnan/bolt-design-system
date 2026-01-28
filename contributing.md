@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for your interest in contributing to 8bitcn.com. We're happy to have you here.
+Thanks for your interest in contributing to Bolt Design.com. We're happy to have you here.
 
 Please take a moment to review this document before submitting your first pull request. We also strongly recommend that you check for open issues and pull requests to see if someone else is working on something similar.
 
@@ -27,13 +27,13 @@ You can fork this repo by clicking the fork button in the top right corner of th
 ### Clone on your local machine
 
 ```bash
-git clone https://github.com/your-username/8bitcn.git
+git clone https://github.com/your-username/Bolt Design.git
 ```
 
 ### Navigate to project directory
 
 ```bash
-cd 8bitcn
+cd Bolt Design
 ```
 
 ### Create a new Branch
@@ -50,7 +50,7 @@ pnpm i
 
 #### Examples
 
-1. To run the `8bitcn.com` website:
+1. To run the `Bolt Design.com` website:
 
 ```bash
 pnpm dev

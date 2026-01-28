@@ -88,7 +88,11 @@ export function DashboardHeader() {
         </Button>
 
         <div className="ml-auto flex items-center gap-2">
-          <Link href="https://github.com/TheOrcDev/8bitcn-ui" target="_blank">
+          <Link
+            href="https://github.com/santakrishnan/bolt-design-system"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Button
               className="flex items-center gap-2"
               size="sm"

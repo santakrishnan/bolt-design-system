@@ -39,7 +39,11 @@ export function SiteHeader() {
         <div className="flex items-center gap-2 md:ml-auto">
           <SearchDocumentation />
 
-          <Link href="https://github.com/TheOrcDev/8bitcn-ui" target="_blank">
+          <Link
+            href="https://github.com/santakrishnan/bolt-design-system"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Button
               className="flex items-center gap-2"
               size="sm"
@@ -64,7 +68,9 @@ export function SiteHeader() {
 export async function StarsCount() {
   "use cache";
 
-  const data = await fetch("https://api.github.com/repos/TheOrcDev/8bitcn-ui");
+  const data = await fetch(
+    "https://api.github.com/repos/santakrishnan/bolt-design-system"
+  );
   const json = await data.json();
   const stars = json.stargazers_count;
 

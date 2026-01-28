@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "404 | 8bitcn/ui",
+  title: "404 | Bolt Design/ui",
 };
 
 export default function NotFound() {

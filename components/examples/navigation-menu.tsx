@@ -68,7 +68,7 @@ export default function NavigationMenuDemo() {
                     href="/"
                   >
                     <div className="mt-4 mb-2 font-medium text-lg">
-                      8bitcn/ui
+                      Bolt Design
                     </div>
                     <p className="text-muted-foreground text-sm leading-tight">
                       Beautifully designed components built with Tailwind CSS.

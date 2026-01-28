@@ -7,6 +7,10 @@
 /* Retro/Pixel Font - Must be before Tailwind imports */
 @import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
 
+/* Import Design Tokens */
+@import "@santakrishnan/bolt-design-tokens/tokens.css";
+@import "@santakrishnan/bolt-design-tokens/themes.css";
+
 @import "tailwindcss";
 @import "fumadocs-ui/css/neutral.css";
 @import "fumadocs-ui/css/preset.css";
