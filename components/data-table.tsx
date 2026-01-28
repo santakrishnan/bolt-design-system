@@ -460,7 +460,7 @@ export function DataTable({
             onDragEnd={handleDragEnd}
             sensors={sensors}
           >
-            <Table variant="borderless">
+            <Table>
               <TableHeader className="sticky top-0 z-10 bg-muted">
                 {table.getHeaderGroups().map((headerGroup) => (
                   <TableRow key={headerGroup.id}>

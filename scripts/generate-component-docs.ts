@@ -27,7 +27,7 @@ interface PropInfo {
 }
 
 // Regex patterns at top level for performance
-const INTERFACE_REGEX = /export interface \w+Props[^{]*{([^}]*)}/s;
+const INTERFACE_REGEX = /export interface \w+Props[^{]*\{([\s\S]*?)\}/;
 const PROP_LINE_REGEX = /^\s*(\w+)(\?)?:\s*([^;]+);?\s*$/;
 const COMPONENTS_PATH_REGEX = /^components\//;
 const TSX_EXTENSION_REGEX = /\.tsx$/;

@@ -1,5 +1,4 @@
 import { Calendar, Home, Inbox, Search, Settings } from "lucide-react";
-import ChartBarMultiple from "@/components/blocks/chart-bar";
 import { DashboardHeader } from "@/components/dashboard-header";
 import { DataTable } from "@/components/data-table";
 import { SectionCards } from "@/components/section-cards";
@@ -91,7 +90,9 @@ export default function Page() {
                       <CardTitle>Visitors for the last 6 months</CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <ChartBarMultiple />
+                      <p className="text-muted-foreground text-sm">
+                        Chart component coming soon...
+                      </p>
                     </CardContent>
                   </Card>
                 </div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { Activity } from "lucide-react";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
 import {
@@ -15,7 +16,6 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
-import { ActivityIcon } from "@/components/ui/icons";
 
 export const description = "A step area chart";
 
@@ -32,7 +32,7 @@ const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "var(--chart-1)",
-    icon: ActivityIcon,
+    icon: Activity,
   },
 } satisfies ChartConfig;
 

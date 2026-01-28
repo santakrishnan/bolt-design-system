@@ -1,17 +1,8 @@
 import { rehypeCodeDefaultOptions } from "fumadocs-core/mdx-plugins";
-import {
-  defineConfig,
-  defineDocs,
-  frontmatterSchema,
-} from "fumadocs-mdx/config";
-import { z } from "zod";
+import { defineConfig, defineDocs } from "fumadocs-mdx/config";
 
 export const docs = defineDocs({
   dir: "content/docs",
-  schema: frontmatterSchema.extend({
-    preview: z.string().optional(),
-    index: z.boolean().default(false),
-  }),
 });
 
 export default defineConfig({
