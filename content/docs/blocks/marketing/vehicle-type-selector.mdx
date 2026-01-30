@@ -1,0 +1,457 @@
+---
+title: Vehicle Type Selector
+description: A grid-based vehicle type selector with images, titles, and descriptions. Perfect for automotive websites.
+---
+
+import { VehicleTypeSelector } from "@/components/blocks/vehicle-type-selector";
+import { BlockPreview } from "@/components/block-preview";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import CopyCommandButton from "@/components/copy-command-button";
+
+<Tabs defaultValue="preview" className="relative mr-auto w-full">
+  <div className="flex items-center justify-between pb-3">
+    <div className="flex items-center gap-4">
+      <TabsList className="justify-start rounded-none border-b bg-transparent p-0">
+        <TabsTrigger
+          value="preview"
+          className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+        >
+          Preview
+        </TabsTrigger>
+        <TabsTrigger
+          value="code"
+          className="relative h-9 rounded-none border-b-2 border-b-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-b-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+        >
+          Code
+        </TabsTrigger>
+      </TabsList>
+    </div>
+    <div className="flex items-center gap-2">
+      <CopyCommandButton
+        copyCommand="pnpm dlx shadcn@latest add design-ui/vehicle-type-selector"
+        command="pnpm dlx shadcn@latest add design-ui/vehicle-type-selector"
+      />
+    </div>
+  </div>
+  <TabsContent value="preview" className="relative rounded-md border">
+    <BlockPreview>
+      <div className="p-8">
+        <VehicleTypeSelector />
+      </div>
+    </BlockPreview>
+  </TabsContent>
+  <TabsContent value="code">
+    ```tsx title="components/blocks/vehicle-type-selector.tsx"
+    "use client";
+
+    import Image from "next/image";
+    import { cn } from "@/lib/utils";
+
+    interface VehicleType {
+      id: string;
+      name: string;
+      description: string;
+      image: string;
+      highlighted?: boolean;
+    }
+
+    interface VehicleTypeSelectorProps {
+      title?: string;
+      vehicles?: VehicleType[];
+      onSelect?: (vehicleId: string) => void;
+      selectedId?: string;
+      className?: string;
+    }
+
+    export function VehicleTypeSelector({
+      title = "What type of vehicle?",
+      vehicles,
+      onSelect,
+      selectedId,
+      className,
+    }: VehicleTypeSelectorProps) {
+      return (
+        <div className={cn("w-full max-w-[1280px] mx-auto", className)}>
+          <h2 className="text-[32px] font-semibold leading-[1.1] tracking-[-0.04em] text-[#2B2B2B] text-center mb-6">
+            {title}
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+            {vehicles.map((vehicle) => (
+              <button
+                key={vehicle.id}
+                type="button"
+                onClick={() => onSelect?.(vehicle.id)}
+                className={cn(
+                  "group relative flex flex-col items-center rounded-lg overflow-hidden transition-all duration-200",
+                  "h-[240px] w-full",
+                  "hover:scale-[1.02] hover:shadow-lg",
+                  vehicle.highlighted ? "bg-white" : "bg-[#F8F8F8]",
+                  selectedId === vehicle.id && "ring-2 ring-[#111111] ring-offset-2"
+                )}
+              >
+                <div className="relative w-full h-[150px] flex items-center justify-center">
+                  <Image
+                    src={vehicle.image}
+                    alt={vehicle.name}
+                    fill
+                    className="object-contain p-4"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  />
+                </div>
+
+                <div className="flex flex-col items-center gap-3 px-4 pb-6">
+                  <h3 className="text-[20px] font-semibold leading-[2.6] uppercase text-[#111111] text-center">
+                    {vehicle.name}
+                  </h3>
+                  <p className="text-[14px] font-normal leading-[1.43] text-[#111111] text-center">
+                    {vehicle.description}
+                  </p>
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+      );
+    }
+    ```
+  </TabsContent>
+</Tabs>
+
+## Vehicle Type Selector
+
+A responsive grid-based vehicle type selector component designed for automotive websites. Features vehicle images, titles, descriptions, and interactive selection states.
+
+## Features
+
+- **Responsive Grid Layout** - 4 columns on desktop, 2 on tablet, 1 on mobile
+- **Interactive Selection** - Click to select with visual feedback
+- **Highlighted States** - Support for featured/highlighted vehicles
+- **Hover Effects** - Smooth scale and shadow transitions
+- **Fully Customizable** - Pass custom vehicle data and styling
+- **TypeScript Support** - Full type safety with interfaces
+- **Accessible** - Semantic HTML with proper button elements
+
+## Usage
+
+### Basic Usage (with default stub data)
+
+```tsx
+import { VehicleTypeSelector } from "@/components/blocks/vehicle-type-selector";
+
+export default function VehiclePage() {
+  return (
+    <VehicleTypeSelector 
+      onSelect={(vehicleId) => console.log("Selected:", vehicleId)}
+    />
+  );
+}
+```
+
+The component includes 8 default vehicle types for testing and demo purposes.
+
+### With Custom Dynamic Data
+
+```tsx
+"use client";
+
+import { VehicleTypeSelector } from "@/components/blocks/vehicle-type-selector";
+import type { VehicleType } from "@/components/blocks/vehicle-type-selector";
+
+export default function VehicleShowroom() {
+  // Example: Fetch from API or database
+  const vehicles: VehicleType[] = [
+    {
+      id: "sedan",
+      name: "Sedan",
+      description: "Reliable & efficient",
+      image: "/vehicles/sedan.jpg",
+    },
+    {
+      id: "suv",
+      name: "SUV",
+      description: "Adventure ready",
+      image: "/vehicles/suv.jpg",
+      highlighted: true, // White background for featured vehicles
+    },
+    {
+      id: "truck",
+      name: "Truck",
+      description: "Built to last",
+      image: "/vehicles/truck.jpg",
+    },
+  ];
+
+  return (
+    <VehicleTypeSelector 
+      title="Choose Your Vehicle"
+      vehicles={vehicles}
+      onSelect={(id) => console.log("Selected:", id)}
+    />
+  );
+}
+```
+
+### With Selection State Management
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { VehicleTypeSelector } from "@/components/blocks/vehicle-type-selector";
+import type { VehicleType } from "@/components/blocks/vehicle-type-selector";
+
+export default function VehicleSelection() {
+  const [selected, setSelected] = useState<string>();
+
+  const handleSelection = (vehicleId: string) => {
+    setSelected(vehicleId);
+    // Additional logic: analytics, navigation, etc.
+    console.log("User selected:", vehicleId);
+  };
+
+  return (
+    <div>
+      <VehicleTypeSelector 
+        selectedId={selected}
+        onSelect={handleSelection}
+      />
+      
+      {selected && (
+        <div className="mt-8 text-center">
+          <p>You selected: {selected}</p>
+          <button onClick={() => setSelected(undefined)}>
+            Clear Selection
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### Fetching Data from API
+
+```tsx
+"use client";
+
+import { useEffect, useState } from "react";
+import { VehicleTypeSelector } from "@/components/blocks/vehicle-type-selector";
+import type { VehicleType } from "@/components/blocks/vehicle-type-selector";
+
+export default function DynamicVehicles() {
+  const [vehicles, setVehicles] = useState<VehicleType[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchVehicles() {
+      try {
+        const response = await fetch("/api/vehicles");
+        const data = await response.json();
+        setVehicles(data);
+      } catch (error) {
+        console.error("Failed to fetch vehicles:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchVehicles();
+  }, []);
+
+  if (loading) {
+    return <div>Loading vehicles...</div>;
+  }
+
+  return (
+    <VehicleTypeSelector 
+      vehicles={vehicles}
+      onSelect={(id) => console.log("Selected:", id)}
+    />
+  );
+}
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | `"What type of vehicle?"` | Heading text above the grid |
+| `vehicles` | `VehicleType[]` | Default 8 vehicles | Array of vehicle objects (uses stub data if not provided) |
+| `onSelect` | `(vehicleId: string) => void` | `undefined` | Callback function when a vehicle is selected |
+| `selectedId` | `string` | `undefined` | ID of the currently selected vehicle (for controlled state) |
+| `className` | `string` | `undefined` | Additional CSS classes for the container |
+
+### VehicleType Interface
+
+```typescript
+export interface VehicleType {
+  id: string;              // Unique identifier (required)
+  name: string;            // Display name (e.g., "SEDAN", "Camry")
+  description: string;     // Short description text
+  image: string;           // Image path or URL
+  highlighted?: boolean;   // Optional: true = white bg, false/undefined = gray bg
+}
+```
+
+### VehicleTypeSelectorProps Interface
+
+```typescript
+export interface VehicleTypeSelectorProps {
+  title?: string;
+  vehicles?: VehicleType[];
+  onSelect?: (vehicleId: string) => void;
+  selectedId?: string;
+  className?: string;
+}
+```
+
+Both interfaces are exported from the component for use in your application.
+
+## Default Vehicles (Stub Data)
+
+The component includes 8 default vehicle types for testing and demo purposes. These are used when no `vehicles` prop is provided:
+
+1. **Sedan** - Fuel-efficient daily driver
+2. **SUV** - Space & versatility
+3. **TRUCK** - Power & capability (highlighted)
+4. **COUPE** - Sleek, sporty, two-door
+5. **HATCHBACK** - Fuel-efficient daily driver
+6. **WAGON** - Space & versatility
+7. **VAN** - Power & capability (highlighted)
+8. **CONVERTIBLE** - Sleek, sporty, two-door
+
+**Note**: In production, replace with your own vehicle data by passing the `vehicles` prop.
+
+## Design Tokens
+
+Generic automotive design system tokens:
+
+```css
+/* Colors */
+--vehicle-card-bg: #F8F8F8;
+--vehicle-card-highlighted: #FFFFFF;
+--vehicle-text: #111111;
+--vehicle-heading: #2B2B2B;
+
+/* Typography */
+--vehicle-heading-size: 32px;
+--vehicle-title-size: 20px;
+--vehicle-description-size: 14px;
+
+/* Spacing */
+--vehicle-card-width: 308px;
+--vehicle-card-height: 240px;
+--vehicle-gap: 24px;
+```
+
+## Customization
+
+### Custom Styling
+
+```tsx
+<VehicleTypeSelector 
+  className="max-w-6xl"
+  title="Select Your Ride"
+/>
+```
+
+### Custom Images
+
+Place your vehicle images in `/public/vehicles/`:
+- `/public/vehicles/sedan.png`
+- `/public/vehicles/suv.png`
+- etc.
+
+Or use external URLs:
+
+```tsx
+const vehicles = [
+  {
+    id: "sedan",
+    name: "Sedan",
+    description: "Compact and efficient",
+    image: "https://example.com/sedan.jpg",
+  },
+];
+```
+
+## Examples
+
+### E-commerce Vehicle Selection
+
+```tsx
+"use client";
+
+import { useState } from "react";
+import { VehicleTypeSelector } from "@/components/blocks/vehicle-type-selector";
+import { Button } from "@/components/ui/button";
+
+export default function VehicleShop() {
+  const [selected, setSelected] = useState<string>();
+
+  const handleContinue = () => {
+    if (selected) {
+      // Navigate to vehicle details
+      window.location.href = `/vehicles/${selected}`;
+    }
+  };
+
+  return (
+    <div className="container py-12">
+      <VehicleTypeSelector 
+        selectedId={selected}
+        onSelect={setSelected}
+      />
+      
+      <div className="mt-8 text-center">
+        <Button 
+          size="lg"
+          disabled={!selected}
+          onClick={handleContinue}
+        >
+          Continue with {selected?.toUpperCase()}
+        </Button>
+      </div>
+    </div>
+  );
+}
+```
+
+### With Analytics Tracking
+
+```tsx
+<VehicleTypeSelector 
+  onSelect={(vehicleId) => {
+    // Track selection
+    analytics.track('vehicle_selected', {
+      vehicle_type: vehicleId,
+      timestamp: new Date(),
+    });
+    
+    // Update state
+    setSelectedVehicle(vehicleId);
+  }}
+/>
+```
+
+## Accessibility
+
+- Uses semantic `<button>` elements for keyboard navigation
+- Proper ARIA labels on images
+- Focus states for keyboard users
+- Screen reader friendly structure
+
+## Browser Support
+
+Works in all modern browsers:
+- Chrome/Edge (latest)
+- Firefox (latest)
+- Safari (latest)
+- Mobile browsers
+
+## Related Components
+
+- [Hero Banner](/docs/blocks/marketing/hero-banner) - For landing page headers
+- [Card](/docs/components/card) - For individual vehicle details
+- [Button](/docs/components/button) - For CTAs

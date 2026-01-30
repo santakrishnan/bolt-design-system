@@ -1,6 +1,7 @@
 // Blocks
 export * from "./blocks/hero-banner";
 export * from "./blocks/login-form";
+export * from "./blocks/vehicle-type-selector";
 
 // UI Components - Export all available components
 export * from "./ui/accordion";
